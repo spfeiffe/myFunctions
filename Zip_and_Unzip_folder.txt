@@ -1,0 +1,12 @@
+cd C:\Users\S\Documents
+
+mv E:\PTA___2DFATMIC___Burden___2020-Sep-16th.docx C:\Users\S\Documents\testWZ\PTA___2DFATMIC___Burden___2020-Sep-16th.zip
+
+mv testWZ\PTA___2DFATMIC___Burden___2020-Sep-16th.docx testWZ\PTA___2DFATMIC___Burden___2020-Sep-16th.zip
+
+"C:\Program Files\WinZip\wzunzip.exe" -d testWZ\PTA___2DFATMIC___Burden___2020-Sep-16th.zip testWZ_2
+
+#		#		#		#		#	     FolderWhoseContentsShouldBeIncludedButNotTheFolderItself
+"C:\Program Files\WinZip\wzzip.exe" -p -r testWZ_3\docModified.zip testWZ_2\*
+
+mv testWZ_3\docModified.zip testWZ_3\docModified.docx
