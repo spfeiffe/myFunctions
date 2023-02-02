@@ -389,3 +389,4 @@ function WHICH(myArray, myItemConditionAsAString)
 				}
 	}
 	//console.log(WHICH(['a','b','c','b','e'], "=='b'")); // must be [1,3]
+	//console.log(WHICH([['a','2'],['b','1'],['c','2'],].map(function(X){return X[1]}), "=='2'")); // must be [0,2] 
