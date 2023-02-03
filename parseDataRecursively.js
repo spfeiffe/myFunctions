@@ -3,6 +3,7 @@
 	*/		
 	function assignDepthToAllNodes(X)
 	{
+	let dynamicVarNameForX = X; // will need this in lines 22 and 24. 
 	let namesOfAllNodes = recursivelyGetAllValuesOfProperty(X, "name");
 	let nodesCompleted = [];
 	let myProposedDepths = [];
@@ -18,9 +19,9 @@
 		if (pathToThisNode == "")
 			{
 			// I've been told not to use `eval`, but I've suffered enough and I need this function to work now! 
-			eval( "myNestedData" + pathToThisNode + "['depth'] = " + 0 ); 
+			eval( "dynamicVarNameForX" + pathToThisNode + "['depth'] = " + 0 ); 
 			} else	{
-					eval( "myNestedData" + pathToThisNode + "['depth'] = " + pathToThisNode.match(new RegExp(/children/g)).length ); // Yes, I know this is a "shortcut" way to do it. 
+					eval( "dynamicVarNameForX" + pathToThisNode + "['depth'] = " + pathToThisNode.match(new RegExp(/children/g)).length ); // Yes, I know this is a "shortcut" way to do it. 
 					}
 		//console.log("completed `" + thisNode + "`");
 		//console.log("");
