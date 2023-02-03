@@ -136,6 +136,40 @@ function findAllIndices(string, pattern)
 	//console.log(findAllIndices("AhiBhiChiDhiE", "x"));  // must be [].
 	//console.log(findAllIndices("AhiBhiChiD E", " "));   // must be [10].
 	//console.log(findAllIndices("AhiBhiChiD E", " ").join(","));   // must be 10.
+function getMaxNumberOfLeaves(ObjectContainingObjects)
+	{
+	if ( ! Object.keys(ObjectContainingObjects).includes("depth") )
+		{
+		assignDepthToAllNodes(ObjectContainingObjects);
+		}
+	let allDepths = recursivelyGetAllValuesOfProperty(ObjectContainingObjects, "depth", false);
+	let maxDepth = Math.max.apply(null, allDepths);
+	let namesOfNodesWhoseDepthEqualsMaxDepth = [];
+	function DoIt(o)
+		{
+		if (typeof o === 'object' && o !== null)
+			{
+			if (Array.isArray(o))
+				{
+				o.forEach(DoIt);
+				} else	{
+						if (o['depth'] === maxDepth)
+							{
+							namesOfNodesWhoseDepthEqualsMaxDepth.push(o['name']);
+							} else	{
+									for (X in o)
+										{
+										//console.log("now doing it for:");
+										//console.log("");
+										DoIt(o[X]);
+										}
+									}
+						}
+			}
+		}
+	DoIt(ObjectContainingObjects);
+	return namesOfNodesWhoseDepthEqualsMaxDepth;
+	}
 function getPathToItemByPropertyValue(nestedDataObject, propertyName, propertyValue)
 	{
 	let raw = recursivelyGetAllValuesOfProperty(nestedDataObject, "name");
