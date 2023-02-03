@@ -286,20 +286,43 @@ function nestChild	(
 				//console.log("");
 				}
 	}
-function recursivelyGetAllValuesOfProperty(ObjectContainingObjects, propertyName)
+function recursivelyGetAllValuesOfProperty(ObjectContainingObjects, propertyName, enforceUnique=true)
 	{
 	let myOutput = [];
 	function DoIt(o, k)
 		{
 		for (X in o)
 			{
-			if (X == k)
+			if (["string", "number"].includes(typeof o[X]))
 				{
-				myOutput.push(o[X])
+				//console.log("now checking " + X + "...");
+				if (X == k)
+					{
+					myOutput.push(o[X])
+					}
+				//console.log("done checking " + X + ".");
 				}
 			if (typeof o[X] == "object" && o[X] !== null)
 				{
-				DoIt(o[X], k);
+				//console.log("now checking " + X + "...");
+				//if (Array.isArray(o[X]))
+				//	{
+				//	o[X].forEach	(
+				//						(
+				//						function(thisItem, K=k)
+				//							{
+				//							if ( ! typeof thisItem === 'object')
+				//								{
+				//								throw "typeof each item in an array must be 'object'";
+				//								}
+				//							//DoIt(thisItem, K);
+				//							}
+				//						)
+				//					);
+				//	} else	{
+							DoIt(o[X], k);
+				//			}
+				//console.log("done checking " + X + ".");
 				}
 			}
 		}
@@ -308,9 +331,12 @@ function recursivelyGetAllValuesOfProperty(ObjectContainingObjects, propertyName
 	myOutput.forEach	(
 						function(d)
 							{
-							if (unique.includes(d))
+							if (enforceUnique)
 								{
-								throw "Non-unique `name` ('" + d + "' appears more than once)";
+								if (unique.includes(d))
+									{
+									throw "Non-unique propretyName ('" + d + "' appears more than once)";
+									}
 								}
 							unique.push(d);
 							}
