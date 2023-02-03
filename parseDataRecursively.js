@@ -296,7 +296,7 @@ function recursivelyGetAllValuesOfProperty(ObjectContainingObjects, propertyName
 				{
 				myOutput.push(o[X])
 				}
-			if (typeof o[X] == "object")
+			if (typeof o[X] == "object" && o[X] !== null)
 				{
 				DoIt(o[X], k);
 				}
