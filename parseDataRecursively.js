@@ -168,7 +168,7 @@ function getMaxNumberOfLeaves(ObjectContainingObjects)
 			}
 		}
 	DoIt(ObjectContainingObjects);
-	return namesOfNodesWhoseDepthEqualsMaxDepth;
+	return namesOfNodesWhoseDepthEqualsMaxDepth.length;
 	}
 function getPathToItemByPropertyValue(nestedDataObject, propertyName, propertyValue)
 	{
