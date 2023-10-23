@@ -1,3 +1,20 @@
+# Assume unbounded/infinite demand.
+# Challenge: set unitPrice such that unitNetProfit is maximized.
+
+# unitProductionAndStorageCost <- given.
+
+#unitCost <- unitSellingCost + unitProductionAndStorageCost
+
+#unitSellingCost <-	ARFOPIMFWIM + 		# Amazon's Referral Fee Or Per-Item Minimum Fee, Whichever Is More. 
+#					IIFTOMTASFEFBAF +	# (recommend FBA) # If I Fulfill The Order Myself, Then Amazon's Shipping Fee, Else Fulfillment By Amazon (FBA) Fee 
+#					# ITIIITMCTAVCF +		# If This Item Is In The `Media` Category, Then Amazon's Variable Closing Fee 
+#					taxes
+
+#unitGrossProfit <- unitPrice - unitCost
+
+
+
+
 # Given unitCost, set unitPrice such that, assuming infinite demand, unitNetProfit is optimized.
 
 resultsMat <- matrix(nrow=0, ncol=6, dimnames=list(NULL,
